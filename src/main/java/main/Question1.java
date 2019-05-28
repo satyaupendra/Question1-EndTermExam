@@ -1,29 +1,31 @@
 package main;
 import java.util.Scanner;
 
-class Courses {
+class Courses extends Question1{
 	public String displayCourseDetails(String dept) {
 			
 			return "You have chosen "+dept+" department.\nThe common subjects are:\n1. Engineering Mathematics\n2. Physics\n3. Chemistry\n";
 		}
-}
+};
 
-class ECE { //extend the parent class here 
+class ECE extends Courses{ //extend the parent class here 
 	public String displayCourseDetails(String dept) {
 		// write or edit your code here 
-		String commonSubjects = "";//call the parent function after using inheritence
-		String subject1 = ""; //write the specific subjects name here
-		String subject2 = ""; //write the specific subjects name here
+		Courses obj = new Courses();
+		String commonSubjects = obj.displayCourseDetails(dept);
+		String subject1 = "Microprocessor"; //write the specific subjects name here
+		String subject2 = "Linear Integrated Circuits"; //write the specific subjects name here
 		
 		String specificSubjects = " specific subjects are:\n4. "+subject1+"\n5. "+subject2;
 		return commonSubjects+dept+specificSubjects;
 		
 	}
-}
-class Mechanical { //extend the parent class here 
+};
+class Mechanical extends Courses{ //extend the parent class here 
 	public String displayCourseDetails(String dept) {
 		// write or edit your code here 
-		String commonSubjects = "";//call the parent function after using inheritence
+		Courses obj = new Courses();
+		String commonSubjects = obj.displayCourseDetails(dept);//call the parent function after using inheritence
 		String subject1 = "Fluid Mechanics"; //write the specific subjects name here
 		String subject2 = "Thermodynamics"; //write the specific subjects name here
 		
@@ -32,19 +34,20 @@ class Mechanical { //extend the parent class here
 	
 	}
 
-}
-class CSE  { //extend the parent class here 
+};
+class CSE extends Question1 { //extend the parent class here 
 	public String displayCourseDetails(String dept) {
 		
 		// write or edit your code here 
-		String commonSubjects = "";//call the parent function after using inheritence
-		String subject1 = ""; //write the specific subjects name here
-		String subject2 = ""; //write the specific subjects name here
+		Courses obj = new Courses();
+		String commonSubjects = obj.displayCourseDetails(dept) ;//call the parent function after using inheritence
+		String subject1 = "Network Theory"; //write the specific subjects name here
+		String subject2 = "Operating Systems"; //write the specific subjects name here
 		
 		String specificSubjects = " specific subjects are:\n4. "+subject1+"\n5. "+subject2;
 		return commonSubjects+dept+specificSubjects;		
 	}
-}
+};
 
 public class Question1 {
 	public static void main(String[] args){
@@ -57,22 +60,22 @@ public class Question1 {
 		switch(choice) {
 		case 1:
 		{
-			//this case is or ECE
-			//Initialize the Class using appropriately taking the concept of inheritence and polymorphism in mind.
+			ECE e = new ECE();//this case is or ECE
+			System.out.println(e.displayCourseDetails("ECE"));//Initialize the Class using appropriately taking the concept of inheritence and polymorphism in mind.
 			System.out.println("");//call the function of the class that you initialized
 			break;
 		}
 		case 2:
 		{
-			//this case is or Mechanical
-			//Initialize the Class using appropriately taking the concept of inheritence and polymorphism in mind.
+			Mechanical m = new Mechanical();//this case is or Mechanical
+			System.out.println(m.displayCourseDetails("Mechanical"));//Initialize the Class using appropriately taking the concept of inheritence and polymorphism in mind.
 			System.out.println("");//call the function of the class that you initialized
 			break;
 		}
 		case 3:
 		{
-			//this case is or CSE
-			//Initialize the Class using appropriately taking the concept of inheritence and polymorphism in mind.
+			CSE c = new CSE();//this case is or CSE
+			System.out.println(c.displayCourseDetails("CSE"));//Initialize the Class using appropriately taking the concept of inheritence and polymorphism in mind.
 			System.out.println("");//call the function of the class that you initialized
 			break;
 		}
